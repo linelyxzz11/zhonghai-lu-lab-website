@@ -2,66 +2,403 @@ backend:
   name: github
   repo: linelyxzz11/zhonghai-lu-lab-website
   branch: main
+  use_graphql: true
+  site_domain: zhonghai-lu-lab-website.pages.dev
+  # Replace this URL after the GitHub OAuth Worker is deployed.
   base_url: https://DECAP-OAUTH-WORKER.example.workers.dev
+  auth_endpoint: /auth
 
+site_url: https://zhonghai-lu-lab-website.pages.dev
+display_url: https://zhonghai-lu-lab-website.pages.dev
 publish_mode: editorial_workflow
+local_backend: true
 media_folder: static/images/uploads
 public_folder: /images/uploads
 
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
 collections:
   - name: news_en
-    label: News (English)
+    label: News — English
+    label_singular: News article
     folder: content/en/news
     create: true
-    path: '{{slug}}/index'
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, category]
+    view_filters:
+      - {label: Drafts, field: draft, pattern: true}
     fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
       - {label: Title, name: title, widget: string}
-      - {label: Date, name: date, widget: datetime, time_format: false}
+      - {label: Publication date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
       - {label: Category, name: category, widget: string}
       - {label: Summary, name: summary, widget: text}
-      - {label: Body, name: body, widget: markdown}
+      - {label: Cover image, name: image, widget: image, required: false}
+      - {label: Original source URL, name: source_url, widget: string, required: false}
+      - {label: Draft, name: draft, widget: boolean, default: false, required: false}
+      - {label: Article body, name: body, widget: markdown, required: false}
+
   - name: news_zh
-    label: 新闻（中文）
+    label: News — Chinese
+    label_singular: Chinese news article
     folder: content/zh/news
     create: true
-    path: '{{slug}}/index'
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, category]
     fields:
-      - {label: 标题, name: title, widget: string}
-      - {label: 日期, name: date, widget: datetime, time_format: false}
-      - {label: 分类, name: category, widget: string}
-      - {label: 摘要, name: summary, widget: text}
-      - {label: 正文, name: body, widget: markdown}
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Title, name: title, widget: string}
+      - {label: Publication date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Category, name: category, widget: string}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Cover image, name: image, widget: image, required: false}
+      - {label: Original source URL, name: source_url, widget: string, required: false}
+      - {label: Draft, name: draft, widget: boolean, default: false, required: false}
+      - {label: Article body, name: body, widget: markdown, required: false}
+
+  - name: publications_en
+    label: Publications — English
+    label_singular: Publication
+    folder: content/en/publications
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, venue]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Title, name: title, widget: string}
+      - label: Authors
+        name: authors
+        widget: list
+        hint: "Use author slugs from data/authors, for example zhonghai-lu or member-01."
+        field: {label: Author slug, name: author, widget: string}
+      - {label: Publication date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Venue, name: venue, widget: string}
+      - {label: Contribution summary, name: summary, widget: text}
+      - {label: Featured on homepage, name: featured, widget: boolean, default: false}
+      - label: Resource labels
+        name: resources
+        widget: list
+        required: false
+        field: {label: Resource, name: resource, widget: string}
+      - label: Publication types
+        name: publication_types
+        widget: list
+        required: false
+        field: {label: Type, name: type, widget: string}
+      - {label: Abstract or notes, name: body, widget: markdown, required: false}
+
+  - name: publications_zh
+    label: Publications — Chinese
+    label_singular: Chinese publication record
+    folder: content/zh/publications
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, venue]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Title, name: title, widget: string}
+      - label: Authors
+        name: authors
+        widget: list
+        hint: "Use the same author slugs as the English record."
+        field: {label: Author slug, name: author, widget: string}
+      - {label: Publication date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Venue, name: venue, widget: string}
+      - {label: Contribution summary, name: summary, widget: text}
+      - {label: Featured on homepage, name: featured, widget: boolean, default: false}
+      - label: Resource labels
+        name: resources
+        widget: list
+        required: false
+        field: {label: Resource, name: resource, widget: string}
+      - label: Publication types
+        name: publication_types
+        widget: list
+        required: false
+        field: {label: Type, name: type, widget: string}
+      - {label: Abstract or notes, name: body, widget: markdown, required: false}
+
+  - name: awards_en
+    label: Awards — English
+    label_singular: Award
+    folder: content/en/awards
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, recipient]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Award title, name: title, widget: string}
+      - {label: Date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Recipient, name: recipient, widget: string}
+      - {label: Award level, name: level, widget: string}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Details, name: body, widget: markdown, required: false}
+
+  - name: awards_zh
+    label: Awards — Chinese
+    label_singular: Chinese award
+    folder: content/zh/awards
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, recipient]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Award title, name: title, widget: string}
+      - {label: Date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Recipient, name: recipient, widget: string}
+      - {label: Award level, name: level, widget: string}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Details, name: body, widget: markdown, required: false}
+
   - name: events_en
-    label: Carousel Events (English)
+    label: Homepage Carousel — English
+    label_singular: Carousel event
     folder: content/en/events
     create: true
-    path: '{{slug}}/index'
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{weight}} · {{title}}"
+    sortable_fields: [weight, date, title]
     fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
       - {label: Title, name: title, widget: string}
-      - {label: Date, name: date, widget: datetime, time_format: false}
-      - {label: Kicker, name: kicker, widget: string}
+      - {label: Date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Small heading, name: kicker, widget: string}
       - {label: Summary, name: summary, widget: text}
       - {label: Hero image, name: hero, widget: image}
       - {label: Image alt text, name: hero_alt, widget: string}
       - {label: Button text, name: button, widget: string}
-      - {label: Button target, name: target, widget: string, hint: "Use a section anchor such as #news or a verified page path such as /publications/paper-slug/"}
+      - {label: Button target, name: target, widget: string, hint: "Use a verified URL, page path, or homepage anchor such as #news."}
       - {label: Show in carousel, name: featured, widget: boolean, default: true}
-      - {label: Order, name: weight, widget: number, default: 10}
-      - {label: Body, name: body, widget: markdown}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1, default: 10}
+      - {label: Detail page body, name: body, widget: markdown, required: false}
+
   - name: events_zh
-    label: 轮播事件（中文）
+    label: Homepage Carousel — Chinese
+    label_singular: Chinese carousel event
     folder: content/zh/events
     create: true
-    path: '{{slug}}/index'
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{weight}} · {{title}}"
+    sortable_fields: [weight, date, title]
     fields:
-      - {label: 标题, name: title, widget: string}
-      - {label: 日期, name: date, widget: datetime, time_format: false}
-      - {label: 栏目短标题, name: kicker, widget: string}
-      - {label: 摘要, name: summary, widget: text}
-      - {label: 主图, name: hero, widget: image}
-      - {label: 图片替代文本, name: hero_alt, widget: string}
-      - {label: 按钮文字, name: button, widget: string}
-      - {label: 按钮目标, name: target, widget: string, hint: "填写栏目锚点（如 #news）或已核实的详情页路径（如 /zh/publications/paper-slug/）"}
-      - {label: 进入轮播, name: featured, widget: boolean, default: true}
-      - {label: 顺序, name: weight, widget: number, default: 10}
-      - {label: 正文, name: body, widget: markdown}
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Title, name: title, widget: string}
+      - {label: Date, name: date, widget: datetime, time_format: false, format: "YYYY-MM-DD"}
+      - {label: Small heading, name: kicker, widget: string}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Hero image, name: hero, widget: image}
+      - {label: Image alt text, name: hero_alt, widget: string}
+      - {label: Button text, name: button, widget: string}
+      - {label: Button target, name: target, widget: string, hint: "Use a verified URL, /zh/ page path, or homepage anchor such as #news."}
+      - {label: Show in carousel, name: featured, widget: boolean, default: true}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1, default: 10}
+      - {label: Detail page body, name: body, widget: markdown, required: false}
+
+  - name: research_en
+    label: Research Directions — English
+    label_singular: Research direction
+    folder: content/en/research
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{weight}} · {{title}}"
+    sortable_fields: [weight, title]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Title, name: title, widget: string}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Legacy number, name: number, widget: hidden, required: false}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - {label: Description, name: body, widget: markdown}
+
+  - name: research_zh
+    label: Research Directions — Chinese
+    label_singular: Chinese research direction
+    folder: content/zh/research
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{weight}} · {{title}}"
+    sortable_fields: [weight, title]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Title, name: title, widget: string}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Legacy number, name: number, widget: hidden, required: false}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - {label: Description, name: body, widget: markdown}
+
+  - name: team_en
+    label: Team Profiles — English
+    label_singular: English team profile
+    folder: data/authors
+    create: true
+    extension: yaml
+    format: yaml
+    identifier_field: slug
+    filter: {field: cms_type, value: member}
+    summary: "{{name.display}} — {{role}}"
+    sortable_fields: [weight, slug, role]
+    fields:
+      - {label: CMS profile type, name: cms_type, widget: hidden, default: member}
+      - {label: Schema, name: schema, widget: hidden, default: hugoblox/author/v1}
+      - {label: Slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and hyphens only.']}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - label: Name
+        name: name
+        widget: object
+        fields:
+          - {label: Display name, name: display, widget: string}
+          - {label: Given name, name: given, widget: string}
+          - {label: Family name, name: family, widget: string}
+      - {label: Role, name: role, widget: string}
+      - {label: Short biography, name: bio, widget: text}
+      - label: Affiliations
+        name: affiliations
+        widget: list
+        fields:
+          - {label: Institution or unit, name: name, widget: string}
+      - label: Research interests
+        name: interests
+        widget: list
+        field: {label: Interest, name: interest, widget: string}
+      - label: Links
+        name: links
+        widget: list
+        required: false
+        fields:
+          - {label: Icon, name: icon, widget: string, hint: "Examples: at-symbol, academicons/google-scholar, brands/github."}
+          - {label: URL, name: url, widget: string}
+          - {label: Accessible label, name: label, widget: string}
+
+  - name: team_zh
+    label: Team Profiles — Chinese
+    label_singular: Chinese team profile
+    folder: data/zh/authors
+    create: true
+    extension: yaml
+    format: yaml
+    identifier_field: slug
+    filter: {field: cms_type, value: member}
+    summary: "{{name.display}} — {{role}}"
+    sortable_fields: [weight, slug, role]
+    fields:
+      - {label: CMS profile type, name: cms_type, widget: hidden, default: member}
+      - {label: Schema, name: schema, widget: hidden, default: hugoblox/author/v1}
+      - {label: Slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use the same slug as the English profile.']}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - label: Name
+        name: name
+        widget: object
+        fields:
+          - {label: Display name, name: display, widget: string}
+          - {label: Given name, name: given, widget: string}
+          - {label: Family name, name: family, widget: string}
+      - {label: Role, name: role, widget: string}
+      - {label: Short biography, name: bio, widget: text}
+      - label: Affiliations
+        name: affiliations
+        widget: list
+        fields:
+          - {label: Institution or unit, name: name, widget: string}
+      - label: Research interests
+        name: interests
+        widget: list
+        field: {label: Interest, name: interest, widget: string}
+      - label: Links
+        name: links
+        widget: list
+        required: false
+        fields:
+          - {label: Icon, name: icon, widget: string}
+          - {label: URL, name: url, widget: string}
+          - {label: Accessible label, name: label, widget: string}
+
+  - name: opportunities_en
+    label: Join Us — English
+    label_singular: Position
+    folder: content/en/opportunities
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{weight}} · {{title}}"
+    sortable_fields: [weight, title, status]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Position title, name: title, widget: string}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - {label: Status, name: status, widget: string, required: false}
+      - {label: Short summary, name: summary, widget: text, required: false}
+      - {label: Link label, name: cta, widget: string, required: false}
+      - {label: Full description, name: body, widget: markdown, required: false}
+
+  - name: opportunities_zh
+    label: Join Us — Chinese
+    label_singular: Chinese position
+    folder: content/zh/opportunities
+    create: true
+    path: "{{slug}}/index"
+    filter: {field: cms_managed, value: true}
+    summary: "{{weight}} · {{title}}"
+    sortable_fields: [weight, title, status]
+    fields:
+      - {label: CMS managed, name: cms_managed, widget: hidden, default: true}
+      - {label: Position title, name: title, widget: string}
+      - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - {label: Status, name: status, widget: string, required: false}
+      - {label: Short summary, name: summary, widget: text, required: false}
+      - {label: Link label, name: cta, widget: string, required: false}
+      - {label: Full description, name: body, widget: markdown, required: false}
+
+  - name: site_data
+    label: Site Structure and Contact
+    files:
+      - name: team_roster
+        label: Team Homepage Roster
+        file: data/team.yaml
+        fields:
+          - label: Members
+            name: members
+            widget: list
+            summary: "{{fields.weight}} · {{fields.slug}} · {{fields.group}}"
+            fields:
+              - {label: Profile slug, name: slug, widget: string}
+              - {label: Group heading, name: group, widget: select, options: [Principal Investigator, Postdoctoral Researchers, PhD Students, Research Assistants]}
+              - {label: Display order, name: weight, widget: number, value_type: int, min: 1}
+      - name: contact_en
+        label: Contact — English
+        file: data/contact.yaml
+        fields:
+          - {label: Email, name: email, widget: string}
+          - {label: Office, name: office, widget: string}
+          - {label: Institution, name: institution, widget: string}
+          - {label: Address / map note, name: map_note, widget: text}
+          - {label: Campus map URL, name: map_url, widget: string}
+      - name: contact_zh
+        label: Contact — Chinese
+        file: data/zh/contact.yaml
+        fields:
+          - {label: Email, name: email, widget: string}
+          - {label: Office, name: office, widget: string}
+          - {label: Institution, name: institution, widget: string}
+          - {label: Address / map note, name: map_note, widget: text}
+          - {label: Campus map URL, name: map_url, widget: string}

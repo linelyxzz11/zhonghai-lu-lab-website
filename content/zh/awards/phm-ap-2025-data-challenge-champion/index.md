@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: PHM-AP 2025 数据挑战赛冠军
 date: 2025-12-13
 recipient: Lone warrior 团队——郭超、裴鸿基、徐祎航、鲁中海

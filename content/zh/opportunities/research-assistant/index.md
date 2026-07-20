@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 科研助理
 weight: 3
 status: 开放状态待确认

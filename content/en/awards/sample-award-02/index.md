@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Honor or recognition record
 date: 2025-12-20
 draft: true

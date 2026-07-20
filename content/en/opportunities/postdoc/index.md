@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Postdoctoral Fellows
 weight: 2
 status: Open / to be confirmed

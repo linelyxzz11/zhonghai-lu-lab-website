@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 论文、获奖或合作消息
 date: 2026-06-27
 draft: true

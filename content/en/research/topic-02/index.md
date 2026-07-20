@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Computer System Architecture
 summary: Research on the organization, performance, efficiency, and reliability of computer systems.
 eyebrow: Architecture

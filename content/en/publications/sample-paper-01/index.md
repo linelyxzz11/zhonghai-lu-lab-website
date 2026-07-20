@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Sample publication title — replace with verified metadata
 authors: [zhonghai-lu, member-02]
 date: 2026-05-20

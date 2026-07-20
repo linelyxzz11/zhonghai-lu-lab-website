@@ -1,4 +1,5 @@
 schema: hugoblox/author/v1
+cms_type: member
 slug: member-03
 weight: 30
 name: {display: Chao Guo, given: Chao, family: Guo}

@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Research Assistants
 weight: 3
 status: Open / to be confirmed

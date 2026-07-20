@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 博士研究生
 weight: 1
 status: 开放状态待确认

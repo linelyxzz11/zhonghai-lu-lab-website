@@ -1,4 +1,5 @@
 schema: hugoblox/author/v1
+cms_type: member
 slug: member-04
 weight: 40
 name: {display: Yushang Jin, given: Yushang, family: Jin}

@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Weekly update title — replace with the latest lab news
 date: 2026-07-11
 draft: true

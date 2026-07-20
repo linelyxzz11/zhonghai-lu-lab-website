@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Network-on-Chip/System-on-Chip
 summary: Research on communication-centric architectures and integrated computing systems at chip scale.
 eyebrow: On-Chip Systems

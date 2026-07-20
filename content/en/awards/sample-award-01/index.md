@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Award title — replace with a verified record
 date: 2026-04-12
 draft: true

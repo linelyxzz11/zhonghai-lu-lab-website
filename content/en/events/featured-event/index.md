@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Important lab event — title to be confirmed
 date: 2026-07-13
 kicker: Featured Event

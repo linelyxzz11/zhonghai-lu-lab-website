@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 论文占位 03——请替换为核实后的元数据
 authors: [zhonghai-lu]
 date: 2026-02-12

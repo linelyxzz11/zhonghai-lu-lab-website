@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: HKUST(GZ) Microelectronics Team Wins PHM-AP 2025 Data Challenge
 date: 2025-12-13
 category: Team Achievement

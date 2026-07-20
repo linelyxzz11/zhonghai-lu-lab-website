@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 荣誉或表彰记录
 date: 2025-12-20
 draft: true

@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: PHM-AP 2025 Data Challenge Champion
 date: 2025-12-13
 recipient: Lone warrior — Chao Guo, Hongji Pei, Weihang Xu, and Prof. Zhonghai Lu

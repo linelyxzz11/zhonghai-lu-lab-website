@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Open positions in the lab
 date: 2026-06-15
 kicker: Join the Team

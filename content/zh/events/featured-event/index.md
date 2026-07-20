@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 课题组重要事件——标题待确认
 date: 2026-07-13
 kicker: 重点事件

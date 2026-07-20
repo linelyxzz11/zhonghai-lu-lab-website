@@ -1,3 +1,7 @@
+schema: hugoblox/author/v1
+cms_type: member
+slug: member-01
+weight: 10
 name: {display: Hongji Pei, given: Hongji, family: Pei}
 role: 博士研究生
 bio: 香港科技大学（广州）微电子学域博士研究生。

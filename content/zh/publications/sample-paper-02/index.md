@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 另一条可由 BibTeX 或表单导入的论文记录
 authors: [zhonghai-lu, member-03]
 date: 2026-03-18

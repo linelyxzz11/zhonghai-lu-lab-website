@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Featured publication or conference result
 date: 2026-06-30
 kicker: Publication Highlight

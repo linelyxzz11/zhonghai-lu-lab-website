@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 组内活动或学术报告动态
 date: 2026-07-04
 draft: true

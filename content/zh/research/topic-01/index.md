@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 片上网络/片上系统
 summary: 面向芯片级集成计算系统的通信架构与系统设计研究。
 eyebrow: 片上系统

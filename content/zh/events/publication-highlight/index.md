@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 重点论文或会议成果
 date: 2026-06-30
 kicker: 成果精选

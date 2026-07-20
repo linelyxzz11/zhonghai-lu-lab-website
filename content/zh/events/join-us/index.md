@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 课题组开放岗位
 date: 2026-06-15
 kicker: 加入团队

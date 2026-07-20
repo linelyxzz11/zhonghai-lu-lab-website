@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 港科大（广州）微电子学域团队获 PHM-AP 2025 数据挑战赛冠军
 date: 2025-12-13
 category: 团队成果

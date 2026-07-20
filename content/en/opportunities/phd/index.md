@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: PhD Students
 weight: 1
 status: Open / to be confirmed

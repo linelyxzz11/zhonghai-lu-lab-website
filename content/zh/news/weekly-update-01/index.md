@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 每周动态标题——请替换为最新组内新闻
 date: 2026-07-11
 draft: true

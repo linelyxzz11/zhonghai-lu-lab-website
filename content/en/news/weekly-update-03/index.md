@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: Publication, award, or collaboration announcement
 date: 2026-06-27
 draft: true

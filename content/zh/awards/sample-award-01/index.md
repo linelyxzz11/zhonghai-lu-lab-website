@@ -1,4 +1,5 @@
 ---
+cms_managed: true
 title: 奖项名称——请替换为核实后的记录
 date: 2026-04-12
 draft: true
