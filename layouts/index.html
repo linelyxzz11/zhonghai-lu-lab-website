@@ -27,6 +27,7 @@
       </button>
       <nav id="main-nav" class="main-nav" data-menu aria-label="{{ if $zh }}主要导航{{ else }}Primary navigation{{ end }}">
         <a href="#research">{{ if $zh }}研究方向{{ else }}Research{{ end }}</a>
+        <a href="#projects">{{ if $zh }}研究项目{{ else }}Projects{{ end }}</a>
         <a href="#team">{{ if $zh }}团队成员{{ else }}Team{{ end }}</a>
         <a href="#publications">{{ if $zh }}论文成果{{ else }}Publications{{ end }}</a>
         <a href="#news">{{ if $zh }}新闻动态{{ else }}News{{ end }}</a>
@@ -84,6 +85,21 @@
             <h3>{{ .Title }}</h3><p>{{ .Params.summary }}</p>
             <div class="circuit-lines" aria-hidden="true"><i></i><i></i><i></i></div>
           </a>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-projects">
+      <div class="shell">
+        <header class="section-header reveal"><div><p class="section-index">Projects</p><h2>{{ if $zh }}研究项目{{ else }}Ongoing projects{{ end }}</h2></div><p>{{ if $zh }}项目标题和摘要待鲁老师确认后替换为正式内容。{{ else }}Project titles and summaries to be confirmed by the PI.{{ end }}</p></header>
+        <div class="project-grid">
+          {{ range (where .Site.RegularPages "Section" "projects").ByWeight }}
+          <article class="project-card reveal">
+            <div class="project-status"><span>{{ .Params.status }}</span></div>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Params.summary }}</p>
+          </article>
           {{ end }}
         </div>
       </div>
