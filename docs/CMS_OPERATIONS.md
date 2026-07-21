@@ -58,12 +58,18 @@ Then open `http://127.0.0.1:1313/admin/`. The local proxy writes directly to the
 
 ## 5. Production OAuth setup
 
-1. Create a GitHub OAuth App.
-2. Deploy the Cloudflare Worker OAuth proxy recommended by the Decap documentation.
-3. Set the OAuth App callback URL to `https://<worker-domain>/callback`.
-4. Store `GITHUB_OAUTH_ID` and `GITHUB_OAUTH_SECRET` as encrypted Cloudflare Worker secrets.
-5. Replace the placeholder `backend.base_url` in `static/admin/config.yml` with the Worker URL.
-6. Push the configuration and test login with an approved GitHub collaborator.
+OAuth runs as Cloudflare Pages Functions on the same `pages.dev` origin as the website. This avoids depending on a separate `workers.dev` hostname and exposes only two dynamic routes: `/auth` and `/callback`.
+
+1. Create or update the GitHub OAuth App.
+2. Set its homepage URL to `https://zhonghai-lu-lab-website.pages.dev/`.
+3. Set its authorization callback URL to `https://zhonghai-lu-lab-website.pages.dev/callback`.
+4. In Cloudflare, open **Workers & Pages > zhonghai-lu-lab-website > Settings > Variables and Secrets**.
+5. Add `GITHUB_OAUTH_ID` and `GITHUB_OAUTH_SECRET` as encrypted production secrets. Use the same OAuth App credentials for both values.
+6. Optionally add `CMS_SITE_ORIGIN=https://zhonghai-lu-lab-website.pages.dev` as a normal production variable. The function already uses this value by default.
+7. Leave `GITHUB_REPO_PRIVATE` unset while the repository is public. Set it to `1` only if the repository becomes private.
+8. Trigger a new production deployment after saving the variables, then test `/admin/` with a GitHub account that has repository write access.
+
+Never put the OAuth client secret in Git, `config.yml`, a screenshot, or a chat message. The callback function verifies a signed, short-lived OAuth state cookie before exchanging the GitHub authorization code.
 
 ## 6. Publishing checklist
 
