@@ -16,7 +16,8 @@ interests:
   - Hardware accelerators for ML
   - Computer architecture
   - Network-on-Chip
-links: []
+links:
+  - {icon: at-symbol, url: 'mailto:rhan@connect.hkust-gz.edu.cn', label: Email Ruichi Han}
 achievements:
   - title: '1-bit Count-based Sorting Unit to Reduce Link Power in DNN Accelerators'
     year: 2025

@@ -16,6 +16,7 @@ interests:
   - Network-on-Chip
   - AI Accelerator
 links:
+  - {icon: at-symbol, url: 'mailto:yjin@connect.hkust-gz.edu.cn', label: Email Yushang Jin}
   - icon: github
     url: https://github.com/EricEricEricJin
     label: GitHub
