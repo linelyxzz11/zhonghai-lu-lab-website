@@ -3,7 +3,7 @@ title: "港科广微电子获 IEEE 可靠性学会 2024 年度最佳会议论文
 date: 2026-07-22
 category: "获奖"
 summary: "鲁中海教授任第一作者的研究论文《Health Condition Estimation for Discrete Power Electronic Devices under Package Failure》荣获 IEEE 可靠性学会 2024 年度最佳会议论文奖。"
-image: /images/news/award-details.png
+image: /images/news/award-ceremony.jpg
 ---
 
 近日，由香港科技大学（广州）微电子学域鲁中海教授任第一作者的研究论文《Health Condition Estimation for Discrete Power Electronic Devices under Package Failure》，荣获 IEEE 可靠性学会 2024 年度最佳会议论文奖。

@@ -3,7 +3,7 @@ title: "HKUST(GZ) Microelectronics Receives the 2024 IEEE Reliability Society Be
 date: 2026-07-22
 category: "Team Achievement"
 summary: "The paper 'Health Condition Estimation for Discrete Power Electronic Devices under Package Failure,' with Professor Zhonghai Lu as the first author, received the 2024 IEEE Reliability Society Best Conference Paper Award."
-image: /images/news/award-details.png
+image: /images/news/award-ceremony.jpg
 ---
 
 The research paper "Health Condition Estimation for Discrete Power Electronic Devices under Package Failure," with Professor Zhonghai Lu of the Microelectronics Thrust at The Hong Kong University of Science and Technology (Guangzhou) as the first author, received the 2024 IEEE Reliability Society Best Conference Paper Award.
