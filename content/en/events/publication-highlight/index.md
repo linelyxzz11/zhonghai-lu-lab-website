@@ -1,13 +1,12 @@
 ---
-title: PHM-AP 2025 Data Challenge Champion
-date: 2026-06-30
+title: 2024 IEEE Reliability Society Best Conference Paper Award
+date: 2026-07-22
 kicker: Team Achievement
-summary: The HKUST(GZ) Microelectronics team won first place in the PHM-AP 2025 Data Challenge.
-hero: /images/news/phm-ap-2025-champion.png
-hero_alt: PHM-AP 2025 Data Challenge championship poster featuring the winning team.
-hero_mode: poster
+summary: Prof. Zhonghai Lu received the 2024 IEEE Reliability Society Best Conference Paper Award for research on power electronic device health estimation.
+hero: /images/news/award-ceremony.jpg
+hero_alt: Prof. Zhonghai Lu receiving the IEEE Reliability Society Best Conference Paper Award at RAMS-EUROPE 2026.
 button: Read the award story
-target: '/news/phm-ap-2025-data-challenge-champion/'
+target: '/news/ieee-reliability-society-best-conference-paper/'
 featured: true
 weight: 2
 ---
