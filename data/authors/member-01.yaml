@@ -1,11 +1,27 @@
 schema: hugoblox/author/v1
 slug: member-01
 weight: 10
-name: {display: Hongji Pei, given: Hongji, family: Pei}
+name:
+  display: Hongji Pei
+  given: Hongji
+  family: Pei
 role: PhD Student
-bio: PhD student in Microelectronics at HKUST(GZ).
+avatar: /images/team/member-01.jpg
+bio: |
+  Hongji Pei received the B.S. degree in Microelectronics from the University of Electronic Science and Technology of China, Chengdu, China, in 2023. He is currently working toward the Ph.D. degree in microelectronics at the Hong Kong University of Science and Technology (Guangzhou), China.
 affiliations:
   - name: Thrust of Microelectronics, HKUST(GZ)
-interests: [Microelectronics]
+interests:
+  - Prognostics and Health Management
+  - Reliability
+  - Semiconductor Power Devices
 links:
   - {icon: at-symbol, url: 'mailto:hpei838@connect.hkust-gz.edu.cn', label: Email Hongji Pei}
+  - {icon: github, url: 'https://github.com/hongji-lgtm', label: GitHub}
+achievements:
+  - title: 'PHM-AP Data Challenge 2025 Winner - 1st Place'
+    year: 2025
+    venue: PHM-AP
+  - title: 'Digital-Twin-Assisted Hybrid Learning for Endurance Fatigue Prediction of HfZrOx Ferroelectric Diodes'
+    year: 2026
+    venue: R.A.M.S. Europe

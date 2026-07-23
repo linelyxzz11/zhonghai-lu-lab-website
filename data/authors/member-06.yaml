@@ -1,11 +1,19 @@
 schema: hugoblox/author/v1
 slug: member-06
 weight: 60
-name: {display: Jinhuang Lin, given: Jinhuang, family: Lin}
+name:
+  display: Chao Guo
+  given: Chao
+  family: Guo
 role: PhD Student
-bio: PhD student in Microelectronics at HKUST(GZ).
+avatar: /images/team/member-06.jpg
+bio: |
+  Chao Guo received the B.Sc. degree in electronic science and technology from Beijing Institute of Technology, Beijing, China, in 2021, and the M.Sc. degree in electrical engineering from KTH Royal Institute of Technology, Stockholm, Sweden, in 2024. He is currently working toward the Ph.D. degree in microelectronics at Hong Kong University of Science and Technology (Guangzhou), China.
 affiliations:
   - name: Thrust of Microelectronics, HKUST(GZ)
-interests: [Microelectronics]
+interests:
+  - Prognostics and Health Management (PHM)
+  - Time Series Prediction
 links:
-  - {icon: at-symbol, url: 'mailto:jlin277@connect.hkust-gz.edu.cn', label: Email Jinhuang Lin}
+  - {icon: at-symbol, url: 'mailto:cguo029@connect.hkust-gz.edu.cn', label: Email Chao Guo}
+  - {icon: scholar, url: 'https://scholar.google.com/citations?user=TTGj0T0AAAAJ&hl=en', label: Google Scholar}

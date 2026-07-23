@@ -6,12 +6,14 @@ name:
   given: Jingwei
   family: Li
 role: PhD Student
-bio: PhD student in Microelectronics at HKUST(GZ).
+avatar: /images/team/member-02.jpg
+bio: |
+  Jingwei Li received the BS degree from Southeast University, China, in 2023, and the MS degree in embedded systems from KTH Royal Institute of Technology, Sweden, in 2024. He is currently working toward the PhD degree with The Hong Kong University of Science and Technology (Guangzhou). His research interests include the fields of computer architecture and AI hardware accelerators.
 affiliations:
   - name: Thrust of Microelectronics, HKUST(GZ)
 interests:
-  - Microelectronics
+  - Computer architecture
+  - Chiplet
+  - AI hardware accelerators
 links:
-  - icon: at-symbol
-    url: mailto:jli739@connect.hkust-gz.edu.cn
-    label: Email Jingwei Li
+  - {icon: at-symbol, url: 'mailto:jli739@connect.hkust-gz.edu.cn', label: Email Jingwei Li}
