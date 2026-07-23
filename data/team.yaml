@@ -26,3 +26,6 @@ members:
   - slug: ruichi-han
     group: PhD Students
     weight: 80
+  - slug: jingwei-li
+    group: PhD Students
+    weight: 90

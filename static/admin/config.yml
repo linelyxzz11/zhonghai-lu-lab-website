@@ -15,23 +15,27 @@ collections:
     label: News (English)
     folder: content/en/news
     create: true
-    path: '{{slug}}/index'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - {label: Title, name: title, widget: string}
       - {label: Date, name: date, widget: datetime, time_format: false}
       - {label: Category, name: category, widget: string}
       - {label: Summary, name: summary, widget: text}
+      - {label: Featured image, name: image, widget: image, required: false, hint: "Upload the main image shown on the homepage and article page"}
+      - {label: Image alt text, name: image_alt, widget: string, required: false, hint: "Briefly describe the image for accessibility"}
       - {label: Body, name: body, widget: markdown}
   - name: news_zh
     label: 新闻（中文）
     folder: content/zh/news
     create: true
-    path: '{{slug}}/index'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - {label: 标题, name: title, widget: string}
       - {label: 日期, name: date, widget: datetime, time_format: false}
       - {label: 分类, name: category, widget: string}
       - {label: 摘要, name: summary, widget: text}
+      - {label: 封面图片, name: image, widget: image, required: false, hint: "上传显示在首页和新闻详情页的主图"}
+      - {label: 图片说明, name: image_alt, widget: string, required: false, hint: "简要描述图片内容，用于无障碍访问"}
       - {label: 正文, name: body, widget: markdown}
   - name: events_en
     label: Carousel Events (English)

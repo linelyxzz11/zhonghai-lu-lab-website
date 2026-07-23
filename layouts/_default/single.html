@@ -2,6 +2,6 @@
 <article class="article-shell">
   <a class="article-back" href="{{ .Parent.RelPermalink }}">← {{ .Parent.Title }}</a>
   <header class="article-header"><p class="section-index">{{ .Section }}{{ with .Date }} · {{ .Format "2006.01.02" }}{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}</header>
-  <div class="article-body">{{ with .Params.image }}<img class="article-feature-image" src="{{ . | relURL }}" alt="{{ $.Title }}">{{ end }}{{ .Content }}</div>
+  <div class="article-body">{{ with .Params.image }}<img class="article-feature-image" src="{{ . | relURL }}" alt="{{ $.Params.image_alt | default $.Title }}">{{ end }}{{ .Content }}</div>
 </article>
 {{ end }}

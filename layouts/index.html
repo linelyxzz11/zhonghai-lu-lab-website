@@ -162,7 +162,7 @@
         <header class="section-header reveal"><div><p class="section-index">News</p><h2>{{ if $zh }}每周动态{{ else }}Latest news{{ end }}</h2></div><a class="text-link" href="{{ "news/" | relLangURL }}">{{ if $zh }}进入新闻归档{{ else }}Open news archive{{ end }} →</a></header>
         <div class="news-grid{{ if eq (len $newsItems) 1 }} is-single{{ end }}">
           {{ range $index, $item := $newsItems }}
-          <a class="news-card reveal" href="{{ $item.RelPermalink }}"><div class="news-meta"><span>{{ $item.Date.Format "2006.01.02" }}</span><em>{{ $item.Params.category }}</em></div>{{ with $item.Params.image }}<div class="news-visual news-photo"><img src="{{ . | relURL }}" alt="{{ $item.Title }}"></div>{{ else }}<div class="news-visual news-visual-{{ add $index 1 }}" aria-hidden="true"><i></i><i></i><i></i></div>{{ end }}<h3>{{ $item.Title }}</h3><p>{{ $item.Params.summary }}</p><span class="inline-link">{{ if $zh }}阅读更多{{ else }}Read more{{ end }} →</span></a>
+          <a class="news-card reveal" href="{{ $item.RelPermalink }}"><div class="news-meta"><span>{{ $item.Date.Format "2006.01.02" }}</span><em>{{ $item.Params.category }}</em></div>{{ with $item.Params.image }}<div class="news-visual news-photo"><img src="{{ . | relURL }}" alt="{{ $item.Params.image_alt | default $item.Title }}"></div>{{ else }}<div class="news-visual news-visual-{{ add $index 1 }}" aria-hidden="true"><i></i><i></i><i></i></div>{{ end }}<h3>{{ $item.Title }}</h3><p>{{ $item.Params.summary }}</p><span class="inline-link">{{ if $zh }}阅读更多{{ else }}Read more{{ end }} →</span></a>
           {{ end }}
         </div>
       </div>
