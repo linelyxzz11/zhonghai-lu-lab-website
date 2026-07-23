@@ -91,8 +91,10 @@ button { font: inherit; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 .section-research { background: var(--paper); }
-.research-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.research-card { min-height: 420px; padding: 32px; position: relative; overflow: hidden; background: var(--white); transition: color .45s, background .45s; }
+.research-grid { display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.research-card { flex: 1 1 calc(33.333% - .5px); min-width: 320px; min-height: 420px; padding: 32px; position: relative; overflow: hidden; background: var(--white); transition: color .45s, background .45s; }
+@media (max-width: 1080px) { .research-card { flex-basis: calc(50% - .5px); } }
+@media (max-width: 700px) { .research-card { flex-basis: 100%; } }
 .research-card:hover { color: var(--white); background: var(--teal); }
 .research-card-top { display: flex; justify-content: flex-end; align-items: center; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .research-card-top em { font-style: normal; color: var(--muted); transition: color .3s; }
